@@ -29,7 +29,7 @@ function iniciarExperiencia() {
 
         mensajes[indice].classList.add("activo");
 
-    }, 8000);
+    }, 6000);
 }
 
 /* ===== FINAL ===== */
