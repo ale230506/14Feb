@@ -13,7 +13,10 @@ function iniciarExperiencia() {
     if (iniciado) return;
     iniciado = true;
 
-    audio.play();
+    audio.play().catch(() => {
+        console.log("El navegador bloqueó el audio automático");
+    });
+
 
     intervalo = setInterval(() => {
         mensajes[indice].classList.remove("activo");
@@ -26,7 +29,7 @@ function iniciarExperiencia() {
 
         mensajes[indice].classList.add("activo");
 
-    }, 4000);
+    }, 8000);
 }
 
 /* ===== FINAL ===== */
