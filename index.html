@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Para ti 💞</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- FONDO PÉTALOS -->
+    <div class="petalos"></div>
+    <div class="luces"></div>
+
+    <h1 class="titulo">Feliz 14 de febrero ❤️</h1>
+
+    <!-- CONTENEDOR MENSAJES -->
+    <div class="carrusel-texto">
+
+        <div class="mensaje activo">
+            Desde que llegaste a mi vida, algo cambió en mí.
+        </div>
+
+        <div class="mensaje">
+            No fue de golpe… fue poco a poco,
+            sin que me diera cuenta.
+        </div>
+
+        <div class="mensaje">
+            Hasta que un día entendí
+            que me había enamorado perdidamente de ti.
+        </div>
+
+        <div class="mensaje">
+            Admiro tu forma de ser,
+            tu manera de ver el mundo,
+            y la calma que transmites incluso sin intentarlo.
+        </div>
+
+        <div class="mensaje">
+            Me gusta cómo eres,
+            sin adornos, sin filtros… simplemente tú.
+        </div>
+
+        <div class="mensaje">
+            Eres una persona increíble,
+            y me siento afortunado de haberte conocido.
+        </div>
+
+        <div class="mensaje">
+            Aunque la distancia exista entre nosotros,
+            nunca ha sido más fuerte que lo que siento.
+        </div>
+
+        <div class="mensaje">
+            Porque cuando alguien es importante de verdad,
+            siempre encuentra la forma de estar cerca del corazón.
+        </div>
+
+        <div class="mensaje">
+            No sé qué traerá el futuro,
+            pero sí sé lo que siento hoy.
+        </div>
+
+        <div class="mensaje">
+            Y mientras estés en mi vida,
+            siempre voy a quererte.
+        </div>
+
+        <div class="mensaje">
+            Gracias por existir…
+            y por coincidir conmigo en este mundo 💗
+        </div>
+
+    </div>
+
+    <!-- BOTÓN COMENZAR -->
+    <button id="btnPrincipal" class="btn-led" onclick="iniciarExperiencia()">
+        ✨ Comenzar ✨
+    </button>
+
+
+    <!-- Música -->
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MODAL PIN -->
+    <div id="modal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal()">×</span>
+            <h3>Acceso especial</h3>
+            <input type="password" id="pin" maxlength="4" placeholder="PIN">
+            <button onclick="verificar()">Entrar</button>
+            <p id="error" class="error"></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

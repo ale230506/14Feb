@@ -1,0 +1,276 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd6e0, #ffe5ec, #e2f0ff);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Título */
+
+.titulo {
+    color: #c2185b;
+    margin-bottom: 30px;
+    font-size: 55px;
+}
+
+/* Carrusel de texto */
+
+.carrusel-texto {
+    width: 60%;
+    height: 12%;
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow:
+        0 0 25px rgba(255, 105, 180, 0.25),
+        0 10px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mensaje {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+    font-size: 40px;
+    color: #444;
+    padding-inline: 2rem;
+}
+
+.mensaje.activo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Botón LED */
+
+.btn-led {
+    margin-top: 40px;
+    padding: 16px 34px;
+    font-size: 40px;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    background: #ff4d88;
+    cursor: pointer;
+
+    box-shadow:
+        0 0 8px #ff4d88,
+        0 0 18px #ff4d88,
+        0 0 35px #ff85a2;
+}
+
+.btn-led:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 12px #ff4d88,
+        0 0 30px #ff4d88,
+        0 0 60px #ff85a2;
+}
+
+/* ===== PÉTALOS ===== */
+
+.petalos {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.petalo {
+    position: absolute;
+    top: -20px;
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+    animation: caer linear infinite;
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* ===== BOTÓN FINAL ANIMADO ===== */
+
+.btn-final {
+    animation: latido 1.2s infinite;
+    background: #e91e63;
+}
+
+@keyframes latido {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== MODAL ===== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+
+    /* CENTRADO PERFECTO */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+}
+
+/* contenido */
+
+.modal-contenido {
+    background: white;
+    padding: 150px 150px;
+    border-radius: 20px;
+    text-align: center;
+    width: 320px;
+
+    /* estética romántica */
+    box-shadow:
+        0 0 30px rgba(255, 105, 180, 0.35),
+        0 10px 30px rgba(0, 0, 0, 0.2);
+
+    animation: aparecerModal 0.4s ease;
+}
+
+@keyframes aparecerModal {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-contenido h3 {
+    color: #c2185b;
+    font-size: 32px;
+}
+
+/* input PIN */
+
+.modal-contenido input {
+    font-size: 60px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #ffd1e0;
+    text-align: center;
+    outline: none;
+}
+
+.modal-contenido input:focus {
+    border-color: #ff4d88;
+}
+
+/* botón entrar */
+
+.modal-contenido button {
+    margin-top: 15px;
+    padding: 12px 70px;
+    border: none;
+    border-radius: 30px;
+    font-size: 28px;
+    color: white;
+    background: #ff4d88;
+    cursor: pointer;
+
+    box-shadow: 0 0 12px #ff4d88;
+}
+
+.modal-contenido button:hover {
+    transform: scale(1.05);
+}
+
+/* cerrar */
+
+.cerrar {
+    position: absolute;
+    margin-left: 235px;
+    margin-top: -145px;
+    cursor: pointer;
+    font-size: 55px;
+    color: #999;
+}
+
+.error {
+    color: #e91e63;
+    margin-top: 10px;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    background: radial-gradient(circle at 30% 40%, #ffc1d6 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, #cde7ff 0%, transparent 40%),
+        radial-gradient(circle at 50% 20%, #ffd9ec 0%, transparent 40%);
+    animation: fondoFlotante 18s ease-in-out infinite;
+    z-index: -2;
+    opacity: 0.7;
+}
+
+@keyframes fondoFlotante {
+    0% {
+        transform: scale(1) translateY(0px);
+    }
+
+    50% {
+        transform: scale(1.1) translateY(-20px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.luces {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.luz {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    filter: blur(2px);
+    animation: flotar 10s linear infinite;
+}
+
+@keyframes flotar {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-10vh);
+    }
+}
