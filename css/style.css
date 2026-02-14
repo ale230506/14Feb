@@ -8,9 +8,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 
-/* Título */
+/* ===== TÍTULO ===== */
 
 .titulo {
     color: #c2185b;
@@ -18,11 +19,11 @@ body {
     font-size: 55px;
 }
 
-/* Carrusel de texto */
+/* ===== CARRUSEL ===== */
 
 .carrusel-texto {
     width: 60%;
-    height: 12%;
+    height: 160px;
     position: relative;
     background: white;
     border-radius: 20px;
@@ -50,7 +51,7 @@ body {
     transform: translateY(0);
 }
 
-/* Botón LED */
+/* ===== BOTÓN LED ===== */
 
 .btn-led {
     margin-top: 40px;
@@ -61,6 +62,7 @@ body {
     color: white;
     background: #ff4d88;
     cursor: pointer;
+    transition: 0.3s;
 
     box-shadow:
         0 0 8px #ff4d88,
@@ -70,36 +72,9 @@ body {
 
 .btn-led:hover {
     transform: scale(1.05);
-    box-shadow:
-        0 0 12px #ff4d88,
-        0 0 30px #ff4d88,
-        0 0 60px #ff85a2;
 }
 
-/* ===== PÉTALOS ===== */
-
-.petalos {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-}
-
-.petalo {
-    position: absolute;
-    top: -20px;
-    width: 18px;
-    height: 18px;
-    opacity: 0.8;
-    animation: caer linear infinite;
-}
-
-@keyframes caer {
-    to {
-        transform: translateY(110vh) rotate(360deg);
-    }
-}
-
-/* ===== BOTÓN FINAL ANIMADO ===== */
+/* botón final con latido */
 
 .btn-final {
     animation: latido 1.2s infinite;
@@ -123,34 +98,32 @@ body {
 /* ===== MODAL ===== */
 
 .modal {
-    display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
-
-    /* CENTRADO PERFECTO */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-
     z-index: 10;
 }
 
-/* contenido */
+.modal.activo {
+    display: flex;
+}
 
 .modal-contenido {
+    position: relative;
     background: white;
-    padding: 150px 150px;
+    padding: 35px 30px;
     border-radius: 20px;
     text-align: center;
-    width: 320px;
+    width: 340px;
 
-    /* estética romántica */
     box-shadow:
         0 0 30px rgba(255, 105, 180, 0.35),
         0 10px 30px rgba(0, 0, 0, 0.2);
 
-    animation: aparecerModal 0.4s ease;
+    animation: aparecerModal 0.35s ease;
 }
 
 @keyframes aparecerModal {
@@ -167,14 +140,14 @@ body {
 
 .modal-contenido h3 {
     color: #c2185b;
-    font-size: 32px;
+    font-size: 26px;
+    margin-bottom: 10px;
 }
 
-/* input PIN */
-
 .modal-contenido input {
-    font-size: 60px;
+    font-size: 32px;
     width: 100%;
+    padding: 10px;
     border-radius: 10px;
     border: 2px solid #ffd1e0;
     text-align: center;
@@ -185,33 +158,23 @@ body {
     border-color: #ff4d88;
 }
 
-/* botón entrar */
-
 .modal-contenido button {
     margin-top: 15px;
-    padding: 12px 70px;
+    padding: 12px 40px;
     border: none;
     border-radius: 30px;
-    font-size: 28px;
+    font-size: 20px;
     color: white;
     background: #ff4d88;
     cursor: pointer;
-
-    box-shadow: 0 0 12px #ff4d88;
 }
-
-.modal-contenido button:hover {
-    transform: scale(1.05);
-}
-
-/* cerrar */
 
 .cerrar {
     position: absolute;
-    margin-left: 235px;
-    margin-top: -145px;
+    top: 10px;
+    right: 15px;
     cursor: pointer;
-    font-size: 55px;
+    font-size: 26px;
     color: #999;
 }
 
@@ -220,12 +183,65 @@ body {
     margin-top: 10px;
 }
 
+/* ===== PÉTALOS ===== */
+
+.petalos {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.petalo {
+    position: absolute;
+    top: -20px;
+    width: 18px;
+    height: 18px;
+    animation: caer linear infinite;
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* ===== LUCES ===== */
+
+.luces {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.luz {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: flotar 10s linear infinite;
+}
+
+@keyframes flotar {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-10vh);
+    }
+}
+
+/* ===== FONDO AURA ===== */
 
 body::before {
     content: "";
     position: fixed;
     inset: -20%;
-    background: radial-gradient(circle at 30% 40%, #ffc1d6 0%, transparent 40%),
+    background:
+        radial-gradient(circle at 30% 40%, #ffc1d6 0%, transparent 40%),
         radial-gradient(circle at 70% 60%, #cde7ff 0%, transparent 40%),
         radial-gradient(circle at 50% 20%, #ffd9ec 0%, transparent 40%);
     animation: fondoFlotante 18s ease-in-out infinite;
@@ -244,33 +260,5 @@ body::before {
 
     100% {
         transform: scale(1) translateY(0px);
-    }
-}
-
-.luces {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.luz {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.7;
-    filter: blur(2px);
-    animation: flotar 10s linear infinite;
-}
-
-@keyframes flotar {
-    from {
-        transform: translateY(100vh);
-    }
-
-    to {
-        transform: translateY(-10vh);
     }
 }

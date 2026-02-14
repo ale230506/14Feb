@@ -1,6 +1,7 @@
 const mensajes = document.querySelectorAll(".mensaje");
 const audio = document.getElementById("musica");
 const boton = document.getElementById("btnPrincipal");
+const modal = document.getElementById("modal");
 
 let indice = 0;
 let intervalo = null;
@@ -9,22 +10,21 @@ let iniciado = false;
 /* ===== INICIAR EXPERIENCIA ===== */
 
 function iniciarExperiencia() {
-
     if (iniciado) return;
     iniciado = true;
 
     audio.play();
 
     intervalo = setInterval(() => {
-
         mensajes[indice].classList.remove("activo");
         indice++;
 
-        if (indice < mensajes.length) {
-            mensajes[indice].classList.add("activo");
-        } else {
+        if (indice >= mensajes.length) {
             finalizarExperiencia();
+            return;
         }
+
+        mensajes[indice].classList.add("activo");
 
     }, 4000);
 }
@@ -34,28 +34,25 @@ function iniciarExperiencia() {
 function finalizarExperiencia() {
     clearInterval(intervalo);
 
-    // deja visible el último mensaje
     mensajes[mensajes.length - 1].classList.add("activo");
 
-    // cambia botón con animación
     boton.textContent = "💌 Ver sorpresa";
     boton.classList.add("btn-final");
-
     boton.onclick = abrirModal;
 }
 
 /* ===== MODAL ===== */
 
 function abrirModal() {
-    document.getElementById("modal").style.display = "flex";
+    modal.classList.add("activo");
 }
 
 function cerrarModal() {
-    document.getElementById("modal").style.display = "none";
+    modal.classList.remove("activo");
 }
 
 function verificar() {
-    const pinCorrecto = "2305"; // CAMBIA TU PIN
+    const pinCorrecto = "2305";
     const pinUsuario = document.getElementById("pin").value;
 
     if (pinUsuario === pinCorrecto) {
@@ -65,7 +62,7 @@ function verificar() {
     }
 }
 
-/* ===== CREAR PÉTALOS SVG ===== */
+/* ===== PÉTALOS ===== */
 
 const contenedor = document.querySelector(".petalos");
 
@@ -86,6 +83,8 @@ for (let i = 0; i < 25; i++) {
 
     contenedor.appendChild(petalo);
 }
+
+/* ===== LUCES ===== */
 
 const luces = document.querySelector(".luces");
 
