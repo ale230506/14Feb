@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fff0f3, #ffe5ec);
+    text-align: center;
+    padding: 40px;
+}
+
+/* TÍTULO */
+.titulo {
+    margin-top: 30px;
+    color: #e91e63;
+    font-size: 45px;
+}
+
+/* ÁLBUM */
+.album {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.04);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 15px;
+    font-size: 18px;
+    color: #444;
+}
+
+/* CARD ESPECIAL */
+.card.especial {
+    animation: latido 1.5s infinite;
+    border: 2px solid #e91e63;
+}
+
+@keyframes latido {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.modal img {
+    max-width: 80%;
+    max-height: 60%;
+    border-radius: 20px;
+}
+
+.modal p {
+    color: white;
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+    .album {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .titulo {
+        font-size: 30px;
+    }
+}

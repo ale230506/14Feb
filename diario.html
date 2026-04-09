@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi novia ❤️</title>
+    <link rel="stylesheet" href="css/diario.css">
+</head>
+
+<body>
+
+    <h1 class="titulo">Te amu preciosa ❤️</h1>
+
+    <div class="album">
+
+        <div class="card" onclick="abrirModal('img/deditoamor.jpeg', 'Tu sonrisa me hace feliz 💖')">
+            <img src="img/deditoamor.jpeg">
+            <p>Un pequeño trazo de tus dedos basta para dibujar el mundo entero</p>
+        </div>
+
+        <div class="card" onclick="abrirModal('img/labiosamor.jpeg', 'Contigo todo se siente diferente 💞')">
+            <img src="img/labiosamor.jpeg">
+            <p>Tus labios son el horizonte donde descansa mi paz.</p>
+        </div>
+
+        <div class="card" onclick="abrirModal('img/trabajoamor.jpeg', 'Ahora se el por que estoy enamorado de ti 💗')">
+            <img src="img/trabajoamor.jpeg">
+            <p>En el discreto tejido de tu esfuerzo, se revela la fuerza inquebrantable que mueve tu mundo.</p>
+        </div>
+
+        <div class="card"
+            onclick="abrirModal('img/piruamor.jpeg', 'Porque se lo mucho que das cuando amas de verdad 💕')">
+            <img src="img/piruamor.jpeg">
+            <p>En la suave caricia de tu cuidado, Piru encuentra su cielo, demostrando que tu amor es un faro de paz
+                para su alma.</p>
+        </div>
+
+        <div class="card" onclick="abrirModal('img/miradaamor.jpeg', 'Y eso se refleja en tu mirada ❤️')">
+            <img src="img/miradaamor.jpeg">
+            <p>Tus ojos, dos faros que iluminan mi mundo, guardan en su brillo la promesa del amor.</p>
+        </div>
+
+        <!-- CARD ESPECIAL -->
+        <div class="card especial" onclick="sorpresaFinal()">
+            <img src="img/interrogante.webp">
+            <p>Haz click aquí… 💖</p>
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <span class="cerrar" onclick="cerrarModal()">×</span>
+        <img id="modalImg">
+        <p id="modalTexto"></p>
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="musica">
+        <source src="audio/cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/diario.js"></script>
+
+</body>
+
+</html>
